@@ -5,9 +5,10 @@ The OccludedPASCAL3D+ has totally 9 occlusion levels, which 3 foreground occlusi
 The occlusion ratio of the foreground:  
 | Occlusion Level | FGL1    | FGL2    | FGL3    |
 |-----------------|---------|---------|---------|
-| Occlusion Ratio | 20%-40% | 40%-60% | 60%-80% |
+| Occlusion Ratio | 20%-40% | 40%-60% | 60%-80% |  
 The occlusion ratio of the background:  
 | Occlusion Level | FGL1    | FGL2    | FGL3    |
 |-----------------|---------|---------|---------|
-| Occlusion Ratio | 0%-20%  | 20%-40% | 40%-60% |
+| Occlusion Ratio | 0%-20%  | 20%-40% | 40%-60% |  
+
 
