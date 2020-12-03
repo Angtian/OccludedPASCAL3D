@@ -13,5 +13,13 @@ The occlusion ratio of the background:
 |-----------------|---------|---------|---------|
 | Occlusion Ratio | 0%-20%  | 20%-40% | 40%-60% |  
 
+Number of images for each level:
+|      | FGL1  | FGL2  | FGL3  |
+|------|-------|-------|-------|
+| BGL1 | 10421 | 10270 | 9965  |
+| BGL2 | 10304 | 10219 | 10056 |
+| BGL3 | 9143  | 10125 | 9983  |  
+
+## Download dataset
 
 
