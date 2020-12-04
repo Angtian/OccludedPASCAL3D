@@ -40,8 +40,8 @@ chmod +x download_FG.sh
 
 3. After run above commands, you should see following folders:  
 **images**: contains occlude images.  
-**annotations**: annotations for each images.
-**lists**: lists indicate names of available images.
+**annotations**: annotations for each images.  
+**lists**: lists indicate names of available images.  
 
 ## Use the annotations
 Inside the annotations folder you could see folders named in format "%sFGL%d_BGL%d" % (cate, fg_occ_lv, bg_occ_lv). In each folder, there are npz files contains annotations for each individual image.
