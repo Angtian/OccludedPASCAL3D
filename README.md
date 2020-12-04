@@ -69,7 +69,7 @@ git clone https://github.com/Angtian/BboxTools.git
 python ./BboxTools/setup.py install
 ```
 
-2. Download the occluder lib cropped from MSCOCO dataset (you can create your own lib, but unfortunable we lose the code for cropping occluder from MSCOCO).
+2. Download the occluder lib cropped from MSCOCO dataset (you can create your own lib, but unfortunately we lose the code for cropping occluder from MSCOCO).
 
 ```
 cd code
