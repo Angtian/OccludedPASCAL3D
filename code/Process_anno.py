@@ -10,12 +10,8 @@ save_anno_path = path_save + 'annotations'
 categories = ['aeroplane', 'bicycle', 'bus', 'car', 'motorbike', 'train', 'boat', 'bottle', 'chair', 'diningtable',
               'sofa', 'tvmonitor']
 
-# categories = ['bicycle']
-# categories = ['aeroplane', 'bicycle', 'bus', 'car', 'motorbike', 'train']
 # folder_name_list = ['%sFGL0_BGL0'] + ['%sFGL%d_BGL%d' % ('%s', j, i) for i in range(1, 4) for j in range(1, 4)]
 folder_name_list = ['%sFGL%d_BGL%d' % ('%s', j, i) for i in range(1, 4) for j in range(1, 4)]
-# folder_name_list = ['%sFGL0_BGL0']
-# folder_name_list = ['%s_raw', '%s_occluded']
 
 for cate in categories:
     for name_ in folder_name_list:
