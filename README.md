@@ -60,7 +60,7 @@ The annos will contain following attributes:
 4. 'box': the bounding box of the object, in format \[ y0, y1, x0, x1, img_h, img_h \].  
 5. 'occluder_box': a list of bounding boxes of the each occluder respectively, in format \[ \[ y0, y1, x0, x1, img_h, img_h \], \[ y0, y1, x0, x1, img_h, img_h \] ... \].  
 
-## Create you own version of OccludedPASCAL3D+ dataset
+## Create your own version of OccludedPASCAL3D+ dataset
 If you are not satisfied with the version we provide, you can also create the dataset using code we provide in the code folder. To create the dataset:
 1. Install the BboxTools (a python lib for bounding boxing operations).
 
