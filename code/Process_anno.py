@@ -1,8 +1,11 @@
 import numpy as np
 import os
 import time
-source_anno_path = '../PASCAL3D+/PASCAL_NEWx/annotations_grouped'
-save_anno_path = '../PASCAL3D+/PASCAL_NEWx/annotations'
+
+
+path_save = '../OccludedPASCAL3D/'
+source_anno_path = path_save + 'annotations_grouped'
+save_anno_path = path_save + 'annotations'
 
 categories = ['aeroplane', 'bicycle', 'bus', 'car', 'motorbike', 'train', 'boat', 'bottle', 'chair', 'diningtable',
               'sofa', 'tvmonitor']

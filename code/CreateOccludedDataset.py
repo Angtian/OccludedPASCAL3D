@@ -8,18 +8,21 @@ import cv2
 occ_libs_dir = './occluder_libs_test_%s.npz'
 occ_libs_name = ['large', 'medium', 'small']
 
+path_save = '../OccludedPASCAL3D/'
+path_to_original_pascal3dp = '../../PASCAL3D+/PASCAL3D+_release1.1/'
+
 categories = ['aeroplane', 'bicycle', 'bus', 'car', 'motorbike', 'train', 'boat', 'bottle', 'chair', 'diningtable',
               'sofa', 'tvmonitor']
 # categories = ['bicycle']
 # categories = ['boat', 'bottle', 'chair', 'diningtable', 'sofa', 'tvmonitor']
-save_anno_path = '../PASCAL3D+/PASCAL_NEW/annotations_grouped'
-save_img_path = '../PASCAL3D+/PASCAL_NEW/images'
-save_list_path = '../PASCAL3D+/PASCAL_NEW/lists'
+save_anno_path = path_save + 'annotations_grouped'
+save_img_path = path_save + 'images'
+save_list_path = path_save + 'lists'
 
-source_list_path = '../PASCAL3D+/PASCAL3D+_release1.1/Image_sets/%s_imagenet_val.txt'
-source_image_path = '../PASCAL3D+/PASCAL3D+_release1.1/Images/%s_imagenet'
-source_anno_path = '../PASCAL3D+/PASCAL3D+_release1.1/Annotations/%s_imagenet'
-source_mask_path = '../PASCAL3D+/PASCAL3D+_release1.1/obj_mask/%s'
+source_list_path = path_to_original_pascal3dp + 'Image_sets/%s_imagenet_val.txt'
+source_image_path = path_to_original_pascal3dp + 'Images/%s_imagenet'
+source_anno_path = path_to_original_pascal3dp + 'Annotations/%s_imagenet'
+source_mask_path = path_to_original_pascal3dp + 'obj_mask/%s'
 
 # 0: only start randomly, 1: only start in box, 2: using both mode
 l_s_thr = 150000
@@ -286,15 +289,15 @@ def generate_dataset(cate, file_list, img_dir, anno_dir, mask_dir, save_img_dir,
             if not mask.shape[0] == img.shape[0] and mask.shape[1] == img.shape[1]:
                 mask = cv2.resize(mask, (img.shape[1], img.shape[0]), interpolation=cv2.INTER_NEAREST)
 
-            box = bbt.from_numpy(anno, image_boundary=img.shape[0:2], sorts=('y0', 'x0', 'y1', 'x1'))
+            box = bbt.from_numpy(anno, image_boundary=img.shape[0:2], sorts=('x0', 'y0', 'x1', 'y1'))
             filled_, images_, masks_, boxes_ = generate_one_img(img, box, occ_libs, mask)
         # try:
 
         except:
             print('Unknown Expectations at %s' % file_name)
             record_file.write('Unknown Expectations at %s\n' % file_name)
-
             continue
+
         if not np.all(filled_):
             record_file.write('Unfill %s: ' % file_name)
 
@@ -304,8 +307,8 @@ def generate_dataset(cate, file_list, img_dir, anno_dir, mask_dir, save_img_dir,
                 annotations[i]['source'].append(os.path.join(img_dir, file_name + '.JPEG'))
                 annotations[i]['occluder_mask'].append(masks_[i])
                 annotations[i]['mask'].append(mask)
-                annotations[i]['box'].append(bbt.dump_bbox_list([box]).ravel())
-                annotations[i]['occluder_box'].append(bbt.dump_bbox_list(boxes_[i]))
+                annotations[i]['box'].append(bbt.list_box_to_numpy([box], save_image_boundary=False).ravel())
+                annotations[i]['occluder_box'].append(bbt.list_box_to_numpy(boxes_[i], save_image_boundary=False))
 
                 img_list_[i] += file_name + '.JPEG' + '\n'
             else:
