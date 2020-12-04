@@ -13,7 +13,7 @@ path_to_original_pascal3dp = '../../PASCAL3D+/PASCAL3D+_release1.1/'
 
 categories = ['aeroplane', 'bicycle', 'bus', 'car', 'motorbike', 'train', 'boat', 'bottle', 'chair', 'diningtable',
               'sofa', 'tvmonitor']
-              
+
 save_anno_path = path_save + 'annotations_grouped'
 save_img_path = path_save + 'images'
 save_list_path = path_save + 'lists'
@@ -306,8 +306,8 @@ def generate_dataset(cate, file_list, img_dir, anno_dir, mask_dir, save_img_dir,
                 annotations[i]['source'].append(os.path.join(img_dir, file_name + '.JPEG'))
                 annotations[i]['occluder_mask'].append(masks_[i])
                 annotations[i]['mask'].append(mask)
-                annotations[i]['box'].append(bbt.list_box_to_numpy([box], save_image_boundary=False).ravel())
-                annotations[i]['occluder_box'].append(bbt.list_box_to_numpy(boxes_[i], save_image_boundary=False))
+                annotations[i]['box'].append(bbt.list_box_to_numpy([box], save_image_boundary=True).ravel())
+                annotations[i]['occluder_box'].append(bbt.list_box_to_numpy(boxes_[i], save_image_boundary=True))
 
                 img_list_[i] += file_name + '.JPEG' + '\n'
             else:

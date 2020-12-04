@@ -77,9 +77,9 @@ def generate_dataset(cate, file_list, img_dir, anno_dir, mask_dir, save_img_dir,
                     os.path.join(save_img_dir_list[i], file_name + '.JPEG'))
                 annotations[i]['source'].append(os.path.join(img_dir, file_name + '.JPEG'))
                 annotations[i]['occluder_mask'].append(masks_[i])
-                annotations[i]['box'].append(bbt.dump_bbox_list([box]).ravel())
                 annotations[i]['mask'].append(mask)
-                annotations[i]['occluder_box'].append(bbt.dump_bbox_list(boxes_[i]))
+                annotations[i]['box'].append(bbt.list_box_to_numpy([box], save_image_boundary=True).ravel())
+                annotations[i]['occluder_box'].append(bbt.list_box_to_numpy(boxes_[i], save_image_boundary=True))
 
                 img_list_[i] += file_name + '.JPEG' + '\n'
             else:
