@@ -110,7 +110,7 @@ def apply_n_occluder(occluder_boxes, img_shape, in_box, boundary_constraint=25, 
                 x = np.random.randint(boundary_constraint, img_shape[0] - boundary_constraint, dtype=int)
                 y = np.random.randint(boundary_constraint, img_shape[1] - boundary_constraint, dtype=int)
 
-                if not in_box.inside((x, y)):
+                if not in_box.include((x, y)):
                     flag_ = False
         else:
             while not flag_ and ti_ < 40:
@@ -119,7 +119,7 @@ def apply_n_occluder(occluder_boxes, img_shape, in_box, boundary_constraint=25, 
                 x = np.random.randint(boundary_constraint, img_shape[0] - boundary_constraint, dtype=int)
                 y = np.random.randint(boundary_constraint, img_shape[1] - boundary_constraint, dtype=int)
                 for exist_box in box_list:
-                    if exist_box.pad(overlap_constraint).inside((x, y)):
+                    if exist_box.pad(overlap_constraint).include((x, y)):
                         flag_ = False
 
         center = (x, y)
