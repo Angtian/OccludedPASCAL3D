@@ -23,6 +23,9 @@ source_image_path = path_to_original_pascal3dp + 'Images/%s_imagenet'
 source_anno_path = path_to_original_pascal3dp + 'Annotations/%s_imagenet'
 source_mask_path = path_to_original_pascal3dp + 'obj_mask/%s'
 
+if not os.path.exists(path_to_original_pascal3dp + 'obj_mask'):
+    os.system('mv ./obj_mask ' + path_to_original_pascal3dp)
+
 # 0: only start randomly, 1: only start in box, 2: using both mode
 l_s_thr = 150000
 occluding_modes_l = ['s', 'm', 'l', 'l','lm', 'll',   'lll']
