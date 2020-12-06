@@ -266,7 +266,7 @@ def generate_dataset(cate, file_list, img_dir, anno_dir, mask_dir, save_img_dir,
     for k in occ_lib_names:
         occ_libs[k] = dict(np.load(occ_lib_dir % k, allow_pickle=True))
         # occ_libs[k] = dict(np.load('tem_lib.npz', allow_pickle=True))
-        occ_libs[k]['boxes'] = bbt.bbox_list_from_dump(occ_libs[k]['boxes'])
+        occ_libs[k]['boxes'] = bbt.from_numpy(occ_libs[k]['boxes'])
 
     save_img_dir_list = [os.path.join(save_img_dir, folder_name % cate) for folder_name in folder_name_list]
     for folder_name in save_img_dir_list:
