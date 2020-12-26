@@ -16,6 +16,6 @@ rm OccludedPASCAL3D_FGL1_BGL1.zip
 rm OccludedPASCAL3D_FGL2_BGL2.zip
 rm OccludedPASCAL3D_FGL3_BGL3.zip
 
-# Clear up
+# Clean up
 rm -rf /tmp/cookies.txt
 
