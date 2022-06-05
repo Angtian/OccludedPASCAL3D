@@ -1,6 +1,6 @@
 # OccludedPASCAL3D+
 The OccludedPASCAL3D+ is a dataset is designed to evaluate the robustness to occlusion for a number of computer vision tasks, such as object detection, keypoint detection and pose estimation. 
-In the OccludedPASCAL3D+ dataset, we simulate partial occlusion by superimposing objects cropped from the MS-COCO dataset on top of objects from the PASCAL3D+ dataset. We only use ImageNet subset in PASCAL3D+, which has 10812 testing images.  
+In the OccludedPASCAL3D+ dataset, we simulate partial occlusion by superimposing objects cropped from the MS-COCO dataset on top of objects from the PASCAL3D+ dataset. We only use ImageNet subset in PASCAL3D+, which has 10812 testing images. **Note:** The OccludedPASCAL3D+ dataset is designed for evaluating out distribution robustness toward unsign occlusion. Thus, the training set with occlusion is only for abilation usage. 
 ![Figure of Car in OccludedPASCAL3D+ in 9 occlussion levels](https://github.com/Angtian/OccludedPASCAL3D/blob/master/Example.JPEG)
 
 The OccludedPASCAL3D+ has 9 occlusion levels in total, with three foreground occlusion levels (FGL1, FGL2, FGL3) and three background occlusion levels (BGL1, BGL2, BGL3). Note that the amount of occlusion is compuated as the number of occluded pixels on the object mask. 
